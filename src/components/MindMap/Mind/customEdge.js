@@ -12,6 +12,7 @@ const customEdge = {
     G6.registerEdge('polyline', {
         itemType: 'edge',
         draw: function draw(cfg, group) {
+          console.log('draw line')
           var startPoint = cfg.startPoint;
           var endPoint = cfg.endPoint;
           // var centerPoint = {

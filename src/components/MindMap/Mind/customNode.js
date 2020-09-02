@@ -11,6 +11,7 @@ const customNode = {
         var stroke = cfg.style.stroke;
         var rect = group.addShape('rect', {
           attrs: {
+            id: cfg.id,
             x: -width / 2,
             y: -15,
             width: width,

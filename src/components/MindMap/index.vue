@@ -7,7 +7,7 @@
         <el-button icon="el-icon-fa-undo" size="medium"></el-button>
         <div class="el-separator"></div>
         <el-button icon="el-icon-gr-topic" size="medium" @click="addRoot"></el-button>
-        <el-button icon="el-icon-gr-subtopic" size="medium"></el-button>
+        <el-button icon="el-icon-gr-subtopic" size="medium"  @click="addEdge"></el-button>
         <el-button icon="el-icon-fa-link" size="medium"></el-button>
         <el-button icon="el-icon-fa-image" size="medium"></el-button>
         <el-button icon="el-icon-delete" size="medium"></el-button>
@@ -61,7 +61,22 @@ export default {
       this.command = new Command(this.editor);
     },
     addRoot() {
-      let data = { id: '1', label: '公司1' , type: 'node'};
+      let data = { id: 'node1', label: '公司1' , type: 'node'};
+      let data1 = { id: 'node2', label: '公司2' , type: 'node'};
+      this.command.executeCommand("add", [data, data1]);
+    },
+    addEdge() {
+      let data = {
+        id: 'edge1',
+        source: 'node2',
+        target: 'node3',
+        type: 'edge',
+        data: {
+          type: '凭证开立',
+          amount: '100,000,000,00 元',
+          date: '2019-08-03'
+        }
+      };
       this.command.executeCommand("add", [data]);
     }
   }
